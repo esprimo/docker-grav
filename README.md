@@ -20,6 +20,6 @@ $ docker build -t mygravcontainer .
 ```
 Then run it:
 ```sh
-$ docker run -v /path/tp/project/data:/data -p 8081:80 -t mygravcontainer
+$ docker run -v ${PWD}/data:/data -p 8081:80 -t mygravcontainer
 ```
 It should now be accessable at [http://127.0.0.1:8081](http://127.0.0.1:80801).
