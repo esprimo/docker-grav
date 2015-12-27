@@ -5,7 +5,7 @@ development.
 
 **Note:** This is most likely not something you want to put in production.
 
-# Add grav project
+## Add grav project
 It requires a mounted folder called "data" and init should be another folder
 called "htdocs".
 ```sh
@@ -13,7 +13,7 @@ $ mkdir -p data/htdocs
 ```
 Add the grav project in that folder.
 
-# Run the container
+## Run the container
 First you need to build it:
 ```sh
 $ docker build -t mygravcontainer .
