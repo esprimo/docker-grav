@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-MAINTAINER Johan Edholm <johan@detectify.com>
+MAINTAINER Johan
 
 # Install PHP, nginx and bash (no need for mysql support)
 RUN apk update \
