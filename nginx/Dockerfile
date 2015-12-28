@@ -6,19 +6,11 @@ MAINTAINER Johan
 RUN apk update \
     && apk add bash \
 	ca-certificates \
-	nginx \
-	php-ctype \
-	php-curl \
-	php-fpm \
-	php-gd \
-	php-iconv \
-	php-json \
-	php-mcrypt \
-	php-openssl \
-	php-pdo \
-	php-phar \
-	php-xml \
-	php-zlib
+	nginx
+
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 # Remove temporary files from package manager to make the image smaller
 RUN rm -rf /var/cache/apk/*
@@ -29,10 +21,7 @@ COPY nginx.conf /etc/nginx/
 # We want to be able to listen to incoming traffic
 EXPOSE 80
 
-# /data will hold all our persistent data
-#VOLUME /data
+RUN adduser -S www-data
 
-# Start php and nginx on start
-COPY run.sh /
-RUN chmod +x /run.sh
-ENTRYPOINT ["/run.sh"]
+WORKDIR /etc/nginx
+CMD ["nginx", "-g", "daemon off;"]
