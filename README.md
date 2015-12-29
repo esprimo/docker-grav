@@ -5,7 +5,7 @@ with PHP.
 **Note:** This is most likely not something you want to put in production.
 
 ## Add grav project
-It requires a mounted folder called "data" and init should be another folder
+It requires a mounted folder called "data" and in it should be another folder
 called "htdocs".
 ```sh
 $ mkdir -p data/htdocs
